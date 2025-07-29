@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ## Just run it with bash or `git bash` on windows, and it will ask for the module's name and tada!
 ## By Barbz
 
