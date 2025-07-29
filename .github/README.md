@@ -43,6 +43,8 @@ Here are the main points we focus on:
 
 AzerothCore is designed to be highly modular, allowing developers to extend and customize the game to suit their preferences or create unique gameplay experiences. This flexibility enables the addition of custom features, content, and modifications.
 
+No modules are bundled with this repository by default. The `modules/` directory remains empty until you add your own modules or those available in the community.
+
 We have a lot of modules already made by the community, many of which can be found in the [Module Catalogue](https://www.azerothcore.org/catalogue.html#/).
 
 ## Installation
