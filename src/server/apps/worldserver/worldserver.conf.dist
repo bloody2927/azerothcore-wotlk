@@ -1506,6 +1506,9 @@ Command.LookupMaxResults = 0
 
 Die.Command.Mode = 1
 
+# Example: .phase set 8
+# Example: .learn engineering
+
 #
 ###################################################################################################
 
