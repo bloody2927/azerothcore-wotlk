@@ -100,5 +100,7 @@ local.properties
 #  module directly in repositoryyou can do:
 #
 #  !modules/yourmodule
+!modules/mod-more-gm-commands/
+!modules/mod-more-gm-commands/**
 #
 # ==================
