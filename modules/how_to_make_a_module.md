@@ -1,5 +1,8 @@
 # CREATE A NEW AZEROTHCORE MODULE
 
+The core repository does not include any modules. You can create your own or
+add ones provided by the community.
+
 1) Read this page first:
 
 http://www.azerothcore.org/wiki/Create-a-Module
