@@ -10,6 +10,8 @@
 !/modules/CMakeLists.txt
 !/modules/*.h
 !/modules/*.cmake
+!/modules/mod-server-progression
+!/modules/mod-server-progression/**
 /build*/
 /var/*
 !/var/build/.gitkeep
