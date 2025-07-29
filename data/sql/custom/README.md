@@ -8,3 +8,4 @@ e.g:
 - UPDATES with fixed values
 
 etc.
+- server_progression.sql: creates `server_progression` table with default values (auto-imported during installation)
