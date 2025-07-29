@@ -1,6 +1,9 @@
 ## 7.0.0-dev.1 | Commit: [0c4feb674444210da295751a0c4e5eefb9c771f1
 ](https://github.com/azerothcore/azerothcore-wotlk/commit/0c4feb674444210da295751a0c4e5eefb9c771f1
 
+### Added
+- Introduced `server_progression` table for tracking server content phase.
+
 
 ### How to upgrade
 
