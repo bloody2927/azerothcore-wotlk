@@ -102,3 +102,6 @@ local.properties
 #  !modules/yourmodule
 #
 # ==================
+
+!/modules/mod-phase/**
+!/modules/mod-learn/**
