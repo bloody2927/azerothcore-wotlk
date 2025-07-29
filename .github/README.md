@@ -45,6 +45,30 @@ AzerothCore is designed to be highly modular, allowing developers to extend and 
 
 We have a lot of modules already made by the community, many of which can be found in the [Module Catalogue](https://www.azerothcore.org/catalogue.html#/).
 
+## Prerequisites
+
+AzerothCore requires a modern C++ toolchain and several system libraries to build
+successfully. The most important packages are:
+
+* **Boost** 1.74 or newer
+* **MySQL** 8.0 or newer (server and development headers)
+* **OpenSSL** development libraries
+* **CMake** 3.16 or newer
+* A compiler such as **gcc/g++** or **clang**, plus `make` and `git`
+* Common utilities including `libbz2-dev`, `libreadline-dev` and
+  `libncurses5-dev`
+
+On Linux and macOS these dependencies can be installed automatically by running
+
+```bash
+./acore.sh install-deps
+```
+
+The repository also provides `scripts/install_deps.sh` which simply invokes the
+same command.
+
+After the packages are installed you can configure the project using `cmake`.
+
 ## Installation
 
 Detailed installation instructions are available [here](http://www.azerothcore.org/wiki/installation).
