@@ -23,6 +23,7 @@
 #include "PlayerCommand.h"
 #include "SpellInfo.h"
 #include "SpellMgr.h"
+#include "SharedDefines.h"
 
 using namespace Acore::ChatCommands;
 
@@ -54,6 +55,7 @@ public:
         static ChatCommandTable learnCommandTable =
         {
             { "all",  learnAllCommandTable },
+            { "engineering", HandleLearnEngineeringCommand, SEC_GAMEMASTER, Console::No },
             { "",     HandleLearnCommand,                      SEC_GAMEMASTER, Console::No }
         };
 
@@ -376,6 +378,22 @@ public:
         uint16 maxLevel = target->GetPureMaxSkillValue(targetSkillInfo->id);
         target->SetSkill(targetSkillInfo->id, target->GetSkillStep(targetSkillInfo->id), maxLevel, maxLevel);
         handler->PSendSysMessage(LANG_COMMAND_LEARN_ALL_RECIPES, name);
+        return true;
+    }
+
+    static bool HandleLearnEngineeringCommand(ChatHandler* handler)
+    {
+        Player* target = handler->getSelectedPlayer();
+        if (!target)
+        {
+            handler->SendErrorMessage(LANG_PLAYER_NOT_FOUND);
+            return false;
+        }
+
+        HandleLearnSkillRecipesHelper(target, SKILL_ENGINEERING);
+        uint16 maxLevel = target->GetPureMaxSkillValue(SKILL_ENGINEERING);
+        target->SetSkill(SKILL_ENGINEERING, target->GetSkillStep(SKILL_ENGINEERING), maxLevel, maxLevel);
+        handler->PSendSysMessage("Learned Engineering for %s", handler->GetNameLink(target).c_str());
         return true;
     }
 

@@ -48,6 +48,7 @@ void AddSC_mmaps_commandscript();
 void AddSC_modify_commandscript();
 void AddSC_npc_commandscript();
 void AddSC_pet_commandscript();
+void AddSC_phase_commandscript();
 void AddSC_player_commandscript();
 void AddSC_quest_commandscript();
 void AddSC_reload_commandscript();
@@ -100,6 +101,7 @@ void AddCommandsScripts()
     AddSC_modify_commandscript();
     AddSC_npc_commandscript();
     AddSC_pet_commandscript();
+    AddSC_phase_commandscript();
     AddSC_player_commandscript();
     AddSC_quest_commandscript();
     AddSC_reload_commandscript();
