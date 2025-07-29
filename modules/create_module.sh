@@ -36,70 +36,52 @@ then
     echo "--- Ready to code"
 fi
 
+# Optionally configure a git remote for the new module
+read -p "Do you want to set a git remote? (y/N) " CONFIGURE_GIT
+case $CONFIGURE_GIT in
+    [yY]*) ;;
+    *)
+        echo "Skipping remote configuration."
+        exit 0
+        ;;
+esac
 
-# ## TODO Set the remote origin with username, repo url etc
+PS3='Select the remote host: '
+select REMOTE_HOST in "github.com" "gitlab.com" "bitbucket.org" "Quit"; do
+    case $REMOTE_HOST in
+        "Quit"|"")
+            echo "No remote host selected. Exiting."
+            exit 0
+            ;;
+        *)
+            break
+            ;;
+    esac
+done
 
-    # $USER_NAME/$MODULE_NAME.git
+PS3='Select the protocol: '
+select REMOTE_PROTOCOL in "HTTPS" "SSH" "Quit"; do
+    case $REMOTE_PROTOCOL in
+        "Quit"|"")
+            echo "No protocol selected. Exiting."
+            exit 0
+            ;;
+        "HTTPS"|"SSH")
+            break
+            ;;
+        *)
+            echo "Invalid option $REPLY"
+            ;;
+    esac
+done
 
-    # echo "Do you want to set your git remote?"
-    # select yn in "Yes" "No"; do
-    #     case $yn in
-    #         Yes )
-    #             CONFIGURE_GIT=1; break;;
-    #         No )
-    #             CONFIGURE_GIT=0;
-    #             exit;;
-    #     esac
-    # done
+read -p "Enter your username for $REMOTE_HOST: " USER_NAME
 
+if [ "$REMOTE_PROTOCOL" = "HTTPS" ]; then
+    REMOTE_URL="https://$REMOTE_HOST/$USER_NAME/$MODULE_NAME.git"
+else
+    REMOTE_URL="git@$REMOTE_HOST:$USER_NAME/$MODULE_NAME.git"
+fi
 
-    # if test "$CONFIGURE_GIT" == "1"
-    # then
-    #     PS3='Where do you want to push your module?'
-    #     options=("github.com" "gitlab.com" "bitbucket.org" "Quit")
-    #     select opt in "${options[@]}"
-    #     do
-    #         case $opt in
-    #             "github.com")
-    #                 echo "you chose choice 1"
-    #                 break
-    #                 ;;
-    #             "gitlab.com")
-    #                 echo "you chose choice 2"
-    #                 break
-    #                 ;;
-    #             "bitbucket.org")
-    #                 echo "you chose choice $REPLY which is $opt"
-    #                 break
-    #                 ;;
-    #             "Quit")
-    #                 break
-    #                 ;;
-    #             *) echo "invalid option $REPLY";;
-    #         esac
-    #     done
-
-    #     REMOTE_HOST="$opt"
-
-    #     PS3='HTTPS or SSH?'
-    #     options=("HTTPS (default)" "SSH" "Quit")
-    #     select opt in "${options[@]}"
-    #     do
-    #         case $opt in
-    #             "HTTPS")
-    #                 echo "you chose choice 1"
-    #                 break
-    #                 ;;
-    #             "SSH")
-    #                 echo "you chose choice $REPLY which is $opt"
-    #                 break
-    #                 ;;
-    #             "Quit")
-    #                 break
-    #                 ;;
-    #             *) echo "invalid option $REPLY";;
-    #         esac
-    #     done
-
-    #     REMOTE_PROTOCOL="$opt"
-    # fi
+git remote add origin "$REMOTE_URL"
+echo "Remote 'origin' set to $REMOTE_URL"
