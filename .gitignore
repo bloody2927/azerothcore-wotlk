@@ -33,7 +33,7 @@
 /out/*
 
 #
-#Generic
+# Generic
 #
 
 .directory
@@ -58,7 +58,6 @@ CMakeLists.txt.user
 #
 /.settings/
 /.externalToolBuilders/*
-# exclude in all levels
 nbproject/
 .sync.ffs_db
 *.kate-swp
@@ -90,15 +89,41 @@ local.properties
 .project
 .cproject
 
+#
+# Visual Studio & Build Output
+#
+*.suo
+*.idb
+*.ipch
+*.sdf
+*.pdb
+*.obj
+*.exe
+*.dll
+*.lib
+*.tlog
+*.cache
+*.db
+*.log
+*.vcxproj.user
 
 # ==================
 #
 #  CUSTOM
 #
-#  put below your custom ignore rules
-#  for example , if you want to include a
-#  module directly in repositoryyou can do:
-#
-#  !modules/yourmodule
+#  Eigene Module NICHT ignorieren
 #
 # ==================
+
+!modules/mod-account-achievements/
+!modules/mod-account-mounts/
+!modules/mod-anticheat/
+!modules/mod-autobalance/
+!modules/mod-guildhouse/
+!modules/mod-individual-progression/
+!modules/mod-learn-spells/
+!modules/mod-skip-dk-starting-area/
+!modules/mod-solocraft/
+!modules/mod-solo-lfg/
+!modules/mod-transmog/
+!modules/mod-test/
