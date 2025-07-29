@@ -24,6 +24,7 @@ void AddSC_ban_commandscript();
 void AddSC_bf_commandscript();
 void AddSC_cast_commandscript();
 void AddSC_character_commandscript();
+void AddSC_chat_commandscript();
 void AddSC_cheat_commandscript();
 void AddSC_debug_commandscript();
 void AddSC_deserter_commandscript();
@@ -56,6 +57,7 @@ void AddSC_send_commandscript();
 void AddSC_server_commandscript();
 void AddSC_spectator_commandscript();
 void AddSC_tele_commandscript();
+void AddSC_templatenpc_commandscript();
 void AddSC_ticket_commandscript();
 void AddSC_titles_commandscript();
 void AddSC_wp_commandscript();
@@ -63,6 +65,7 @@ void AddSC_cache_commandscript();
 void AddSC_item_commandscript();
 void AddSC_player_settings_commandscript();
 void AddSC_worldstate_commandscript();
+void AddSC_xp_commandscript();
 
 // The name of this function should match:
 // void Add${NameOfDirectory}Scripts()
@@ -76,6 +79,7 @@ void AddCommandsScripts()
     AddSC_bf_commandscript();
     AddSC_cast_commandscript();
     AddSC_character_commandscript();
+    AddSC_chat_commandscript();
     AddSC_cheat_commandscript();
     AddSC_debug_commandscript();
     AddSC_deserter_commandscript();
@@ -108,6 +112,7 @@ void AddCommandsScripts()
     AddSC_server_commandscript();
     AddSC_spectator_commandscript();
     AddSC_tele_commandscript();
+    AddSC_templatenpc_commandscript();
     AddSC_ticket_commandscript();
     AddSC_titles_commandscript();
     AddSC_wp_commandscript();
@@ -115,4 +120,5 @@ void AddCommandsScripts()
     AddSC_item_commandscript();
     AddSC_player_settings_commandscript();
     AddSC_worldstate_commandscript();
+    AddSC_xp_commandscript();
 }
