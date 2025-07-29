@@ -28,6 +28,7 @@
 #include "PoolMgr.h"
 #include "ReputationMgr.h"
 #include "ScriptMgr.h"
+#include "ServerProgressionMgr.h"
 #include "SpellAuraEffects.h"
 #include "SpellMgr.h"
 #include "WorldSession.h"
@@ -250,6 +251,14 @@ bool Player::CanSeeStartQuest(Quest const* quest)
 
 bool Player::CanTakeQuest(Quest const* quest, bool msg)
 {
+    uint8 reqPhase = sServerProgressionMgr->GetQuestRequiredPhase(quest->GetQuestId());
+    if (sServerProgressionMgr->GetPhase() < reqPhase)
+    {
+        if (msg)
+            SendCanTakeQuestResponse(INVALIDREASON_DONT_HAVE_REQ);
+        return false;
+    }
+
     return !sDisableMgr->IsDisabledFor(DISABLE_TYPE_QUEST, quest->GetQuestId(), this)
            && SatisfyQuestStatus(quest, msg) && SatisfyQuestExclusiveGroup(quest, msg)
            && SatisfyQuestClass(quest, msg) && SatisfyQuestRace(quest, msg) && SatisfyQuestLevel(quest, msg)

@@ -28,6 +28,9 @@ else()
   set(MODULES_DEFAULT_LINKAGE "disabled")
 endif()
 
+# Enable the server progression module by default
+set(MODULE_MOD-SERVER-PROGRESSION "static")
+
 # Add support old api modules
 CU_GET_GLOBAL("AC_ADD_SCRIPTS_LIST")
 CU_GET_GLOBAL("AC_ADD_SCRIPTS_INCLUDE")
