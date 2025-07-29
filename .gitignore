@@ -21,6 +21,8 @@
 /apps/joiner
 /deps/deno
 /data/sql/custom/*
+!/data/sql/custom/db_world/
+!/data/sql/custom/db_world/server_progression.sql
 /src/server/scripts/Custom/*
 !/src/server/scripts/Custom/README.md
 
